@@ -1,0 +1,259 @@
+ 
+
+
+
+
+ <nb-card  class=" card model-full">
+    <nb-card-body>
+        <form [formGroup]="managerForm" (ngSubmit)="onSubmit()">
+
+  <button (click)="closeDialog(null)" type="button" id="button" class="close noFocus" data-dismiss="modal" aria-label="Close">
+     <span aria-hidden="true">X</span>
+    </button>
+
+
+       <h1> Fiche Manager</h1>
+
+
+
+
+
+   <div class="row">
+       <div class="col-md-6">
+           <label>Nom</label>
+           <input type="text" nbInput fullWidth 
+            shape="rectangle"
+            status="warning"
+            fieldSize="medium"
+            placeholder="Nom" 
+            formControlName="firstName">
+
+            <p *ngIf="managerForm.hasError('required', 'firstName') && (managerForm.controls.firstName.dirty || managerForm.controls.firstName.touched)"
+            class="caption status-danger">   Champ obligatoire *</p>
+            <p *ngIf="managerForm.hasError('pattern', 'firstName') && (managerForm.controls.firstName.dirty || managerForm.controls.firstName.touched)"
+            class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+
+       </div>
+       <div class="col-md-6">
+          <label> Prénom</label>
+          <input type="text" nbInput fullWidth 
+          shape="rectangle"
+          status="warning" 
+          fieldSize="medium"
+          placeholder="Prénom" 
+          formControlName="lastName">
+          <p *ngIf="managerForm.hasError('required', 'lastName') && (managerForm.controls.lastName.dirty || managerForm.controls.lastName.touched)"
+             class="caption status-danger">   Champ obligatoire *</p>
+          <p *ngIf="managerForm.hasError('pattern', 'lastName') && (managerForm.controls.lastName.dirty || managerForm.controls.lastName.touched)"
+          class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+
+      </div>
+      </div>
+      
+
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-12">
+               <label> Date de naissance </label>
+               <input type="date" nbInput fullWidth
+               shape="rectangle"
+               status="warning" 
+               fieldSize="medium"
+               placeholder="Date de naissance" 
+               formControlName="dateNaiss">   
+           </div>
+       </div>
+
+
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-4">
+               <label> CIN </label>
+               <input type="text" nbInput fullWidth
+               shape="rectangle"
+               status="warning"
+               fieldSize="medium"
+               placeholder="CIN"
+               minlength="8"
+               maxlength="8"
+               formControlName="cin" >
+              <p *ngIf="managerForm.hasError('required', 'cin') && (managerForm.controls.cin.dirty || managerForm.controls.cin.touched)"
+              class="caption status-danger">   Champ obligatoire *</p>
+           </div>
+
+           <div class="col-md-4">
+               <label> N° de passeport  </label>
+               <input type="text" nbInput fullWidth
+                shape="rectangle"
+                status="warning"
+                fieldSize="medium"
+                placeholder="N° de passeport" 
+                formControlName="numPasseport">
+           </div>
+
+           <div class="col-md-4">
+            <label> Nationalité </label>
+            <input type="text" nbInput fullWidth
+             shape="rectangle"
+             status="warning"
+             fieldSize="medium"
+             placeholder="Nationalité" 
+             formControlName="nationalite">
+        </div>
+       </div>
+
+
+
+
+       <div style="margin: top 0.5em;" class="row"> 
+           <div class="col-md-12">
+               <label> Adresse complète </label>
+               <input type="text" nbInput fullWidth
+                shape="rectangle"
+                status="warning"
+                fieldSize="medium" 
+                placeholder="Adresse complète"
+                formControlName="address">
+              <p *ngIf="managerForm.hasError('required', 'address') && (managerForm.controls.address.dirty || managerForm.controls.address.touched)"
+               class="caption status-danger">   Champ obligatoire *</p>
+           </div>
+       </div>
+
+
+
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-4">
+               <label> Pays </label>
+               <input type="text" nbInput fullWidth
+                shape="rectangle"
+                status="warning"
+                fieldSize="medium" 
+                placeholder="Pays" 
+                formControlName="pays">
+           </div>
+
+           <div class="col-md-4">
+               <label> Gouvernerat  </label>
+               <input type="text" nbInput fullWidth 
+                shape="rectangle"
+                status="warning"
+                fieldSize="medium" 
+                placeholder="Gouvernerat"
+                formControlName="gouvernerat">
+           </div>
+
+           <div class="col-md-4">
+            <label> Code Postal </label>
+            <input type="text" nbInput fullWidth
+             shape="rectangle"
+             status="warning"
+             fieldSize="medium"
+             placeholder="Code Postal"
+             minlength="4"
+             maxlength="4"
+             formControlName="codePostal">
+        </div>
+       </div>
+
+
+       
+       
+           
+           
+
+        
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-6">
+               <label> Télephone </label>
+               <input type="text" nbInput fullWidth 
+                shape="rectangle"
+                status="warning"
+                fieldSize="medium" 
+                placeholder="Télephone" 
+                minlength="8"
+                maxlength="8"
+                formControlName="telephone">
+                 
+                 <p *ngIf="managerForm.hasError('required', 'telephone')  && (managerForm.controls.telephone.dirty  || managerForm.controls.telephone.touched)"
+                 class="caption status-danger" >   Champ obligatoire * </p>
+                 <p *ngIf="managerForm.hasError('pattern', 'telephone')  && (managerForm.controls.telephone.dirty  || managerForm.controls.telephone.touched)"
+                 class="caption status-danger">   Veuillez entrer un numéro de télephone valide</p>
+                </div>
+
+           <div class="col-md-6">
+               <label> E-mail  </label>
+               <input type="text" nbInput fullWidth 
+                shape="rectangle"
+                status="warning" 
+                fieldSize="medium"
+                placeholder="E-mail"  
+                formControlName="email">
+                
+                <p *ngIf="managerForm.hasError('required', 'email')  && (managerForm.controls.email.dirty  || managerForm.controls.email.touched)"
+                class="caption status-danger" >   Champ obligatoire *</p>
+                <p *ngIf="managerForm.hasError('pattern', 'email')  && (managerForm.controls.email.dirty  || managerForm.controls.email.touched)"
+                class="caption status-danger">   Veuillez entrer un email valide</p>
+            </div>
+        </div> 
+
+
+        
+
+
+
+      
+
+      <div class="row" [hidden] ="modeView">
+       <div class="col-md-12" style="text-align: center; margin-top: 3%;  ">
+           <button type="submit" id="ajouter"  style="background-color: #17BC2A"    nbButton class="button-menu-activated btn-search"> 
+            {{typeSubmit}}
+
+           </button>
+           <button class="button-menu-activated btn-search-2"
+                   nbButton
+                   style="background-color: #D1051B;"
+                    id="annuler"
+                   (click)="reset()"
+                   type="button">
+               Annuler
+           </button>
+       </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </form>  
+   </nb-card-body>
+</nb-card>

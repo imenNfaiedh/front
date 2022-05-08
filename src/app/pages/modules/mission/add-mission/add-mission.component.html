@@ -1,0 +1,152 @@
+<nb-card class=" card model-full">
+    <nb-card-body>
+        <form [formGroup]="missionForm"  (ngSubmit)="onSubmit()" >
+
+
+            <button (click)="closeDialog(null)" type="button" id="button" class="close noFocus" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">X</span>
+               </button>
+
+               <h1>Nouvelle Mission</h1> 
+
+        
+               <div class="row">
+                <div class="col-md-6">
+                    <label>Nom</label>
+                    <input type="text" nbInput fullWidth 
+                    shape="rectangle" 
+                    status="warning"
+                    fieldSize="medium"
+                    placeholder="Nom" 
+                    formControlName="name">
+
+                     <p *ngIf="missionForm.hasError('required', 'name') && (missionForm.controls.name.dirty || missionForm.controls.name.touched)"
+                   class="caption status-danger">   Champ obligatoire *</p>
+                   <p *ngIf="missionForm.hasError('pattern', 'name') && (missionForm.controls.name.dirty || missionForm.controls.name.touched)"
+                   class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+                </div>
+
+
+                <div class="col-md-6">
+                    <label>Lieu</label>
+                    <input type="text" nbInput fullWidth 
+                    shape="rectangle" 
+                    status="warning"
+                    fieldSize="medium"
+                    placeholder="Lieu_Mission" 
+                    formControlName="localisation">
+
+                     <p *ngIf="missionForm.hasError('required', 'localisation') && (missionForm.controls.localisation.dirty || missionForm.controls.localisation.touched)"
+                   class="caption status-danger">   Champ obligatoire *</p>   
+                </div>
+            </div>
+             
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Date début</label>
+                    <input type="text" nbInput fullWidth 
+                    shape="rectangle" 
+                    fieldSize="medium"
+                    status="warning"
+                    placeholder="Date début" 
+                    formControlName="dateDebut">
+
+                     <p *ngIf="missionForm.hasError('required', 'dateDebut') && (missionForm.controls.dateDebut.dirty || missionForm.controls.dateDebut.touched)"
+                   class="caption status-danger">   Champ obligatoire *</p>
+                   <p *ngIf="missionForm.hasError('pattern', 'dateDebut') && (missionForm.controls.dateDebut.dirty || missionForm.controls.dateDebut.touched)"
+                   class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+                </div>
+
+
+                <div class="col-md-4">
+                    <label>Date fin</label>
+                    <input type="text" nbInput fullWidth 
+                    shape="rectangle" 
+                    fieldSize="medium"
+                    status="warning"
+                    placeholder="Date fin" 
+                    formControlName="dateFin">
+
+                     <p *ngIf="missionForm.hasError('required', 'dateFin') && (missionForm.controls.dateFin.dirty || missionForm.controls.dateFin.touched)"
+                   class="caption status-danger">   Champ obligatoire *</p>
+                   <p *ngIf="missionForm.hasError('pattern', 'dateFin') && (missionForm.controls.dateFin.dirty || missionForm.controls.dateFin.touched)"
+                   class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Nombre d'heur </label><br>
+
+                    <input type="text"
+                    nbInput placeholder="Initial width" 
+                    shape="rectangle" 
+                    status="warning"
+                    fieldSize="medium"
+                    placeholder="Nombre d'heur " 
+                    formControlName="nbHeurs">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                <label> Choisir Client</label>
+                <nb-select
+                formControlName="client" 
+                fullWidth id="relation" 
+                status="warning"
+                fieldSize="medium"
+                placeholder="{{ 'Choisir le client'}}">
+                <nb-option 
+                *ngFor="let  item of  clientList" 
+                [value]="item">{{item.fullName}}</nb-option>
+                </nb-select>
+                   </div>
+
+                   <div class="col-md-6">
+                    <label> Choisir Collaborateur</label>
+                    <nb-select
+                    formControlName="Collaborateur" 
+                    fullWidth id="relation" 
+                    status="warning"
+                    fieldSize="medium"
+                    placeholder="{{ 'Choisir le Collaborateur'}}">
+                    <nb-option 
+                    *ngFor="let  item of  collaborateurList" 
+                    [value]="item">{{item.name}}</nb-option>
+                    </nb-select>
+                       </div>
+                </div>
+           
+
+
+
+
+
+
+            <div class="row"[hidden] ="modeView">
+                <div class="col-md-12" style="text-align: center; margin-top: 3%;  ">
+                    <button type="submit" id="ajouter"  style="background-color: #17BC2A"    nbButton class="button-menu-activated btn-search"> 
+                        {{typeSubmit}}
+
+                    </button>
+                    <button class="button-menu-activated btn-search-2"
+                            nbButton
+                            style="background-color: #D1051B;"
+                             id="annuler"
+                            (click)="reset()"
+                            type="button">
+                        Annuler
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </form>
+</nb-card-body>
+</nb-card>

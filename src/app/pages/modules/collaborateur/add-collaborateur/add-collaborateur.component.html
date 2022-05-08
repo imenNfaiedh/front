@@ -1,0 +1,302 @@
+ 
+
+
+
+
+ <nb-card  class=" card model-full">
+    <nb-card-body>
+
+  <button (click)="closeDialog(null)" type="button" id="button" class="close noFocus" data-dismiss="modal" aria-label="Close">
+     <span aria-hidden="true">X</span>
+    </button>
+
+
+       <h1> Fiche Collaborateur</h1>
+       <form [formGroup]="collaborateurForm" (ngSubmit)="onSubmit()">
+
+
+
+
+   <div class="row">
+       <div class="col-md-6">
+           <label>Nom</label>
+           <input type="text" nbInput fullWidth 
+           status="warning"
+           shape="rectangle" 
+           fieldSize="medium"
+           placeholder="Nom" 
+           formControlName="firstName">
+
+            <p *ngIf="collaborateurForm.hasError('required', 'firstName') && (collaborateurForm.controls.firstName.dirty || collaborateurForm.controls.firstName.touched)"
+            class="caption status-danger">   Champ obligatoire *</p>
+            <p *ngIf="collaborateurForm.hasError('pattern', 'firstName') && (collaborateurForm.controls.firstName.dirty || collaborateurForm.controls.firstName.touched)"
+            class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+
+       </div>
+       <div class="col-md-6">
+          <label> Prénom</label>
+          <input type="text" nbInput fullWidth 
+          status="warning"
+          shape="rectangle" 
+          fieldSize="medium"
+          placeholder="Prénom" 
+          formControlName="lastName">
+
+          <p *ngIf="collaborateurForm.hasError('required', 'lastName') && (collaborateurForm.controls.lastName.dirty || collaborateurForm.controls.lastName.touched)"
+             class="caption status-danger">   Champ obligatoire *</p>
+          <p *ngIf="collaborateurForm.hasError('pattern', 'lastName') && (collaborateurForm.controls.lastName.dirty || collaborateurForm.controls.lastName.touched)"
+          class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+
+      </div>
+      </div>
+      
+
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-12">
+               <label> Date de naissance </label>
+               <input type="date" nbInput fullWidth
+               status="warning"
+               shape="rectangle"
+               fieldSize="medium"
+               placeholder="Date de naissance" 
+               formControlName="dateNaiss">
+                  
+           </div>
+       </div>
+
+
+       <div style="margin-top: 0.5%;" class="row"> 
+
+       
+           <div class="col-md-4">
+               <label> CIN </label>
+               <input type="text" nbInput fullWidth
+               status="warning"
+               shape="rectangle"
+                fieldSize="medium"
+                placeholder="CIN"
+                minlength="8"
+                maxlength="8"
+                formControlName="cin" >
+
+              <p *ngIf="collaborateurForm.hasError('required', 'cin') && (collaborateurForm.controls.cin.dirty || collaborateurForm.controls.cin.touched)"
+              class="caption status-danger">   Champ obligatoire *</p>
+           </div>
+
+           <div class="col-md-4">
+               <label> N° de passeport  </label>
+               <input type="text" nbInput fullWidth
+               status="warning"
+               shape="rectangle" 
+               fieldSize="medium"
+               placeholder="N° de passeport" 
+               formControlName="numPasseport">
+           </div>
+
+           <div class="col-md-4">
+            <label> Nationalité </label>
+            <input type="text" nbInput fullWidth
+            status="warning"
+            shape="rectangle"
+            fieldSize="medium"
+            placeholder="Nationalité" 
+            formControlName="nationalite">
+        </div>
+       </div>
+
+
+
+
+       <div style="margin: top 0.5em;" class="row"> 
+           <div class="col-md-12">
+               <label> Adresse complète </label>
+               <input type="text" nbInput fullWidth
+               status="warning"
+               shape="rectangle"
+               fieldSize="medium" 
+               placeholder="Adresse complète"
+               formControlName="address">
+               
+              <p *ngIf="collaborateurForm.hasError('required', 'address') && (collaborateurForm.controls.address.dirty || collaborateurForm.controls.address.touched)"
+               class="caption status-danger">   Champ obligatoire *</p>
+           </div>
+       </div>
+
+
+
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-4">
+            <label> Pays </label>
+            <input type="text" nbInput fullWidth
+            status="warning"
+            shape="rectangle"
+            fieldSize="medium" 
+            placeholder="Pays" 
+            formControlName="pays">
+           </div>
+
+           <div class="col-md-4">
+            <label> Gouvernerat  </label>
+            <input type="text" nbInput fullWidth 
+            status="warning"
+            shape="rectangle"
+            fieldSize="medium" 
+            placeholder="Gouvernerat"
+            formControlName="gouvernerat">
+           </div>
+
+
+           <div class="col-md-4">
+            <label> Code Postal </label>
+            <input type="text" nbInput fullWidth
+            status="warning"
+            shape="rectangle"
+            fieldSize="medium"
+            placeholder="Code Postal"
+            minlength="4"
+            maxlength="4"
+            formControlName="codePostal">
+        </div>
+       </div>
+
+
+       
+       
+           
+           
+
+        
+       <div style="margin-top: 0.5%;" class="row"> 
+           <div class="col-md-4">
+               <label> Télephone </label>
+               <input type="text" nbInput fullWidth 
+               status="warning"
+                shape="rectangle"
+                fieldSize="medium"
+                placeholder="Télephone" 
+                minlength="8"
+                maxlength="8"
+                formControlName="telephone">
+                 
+                 <p *ngIf="collaborateurForm.hasError('required', 'telephone')  && (collaborateurForm.controls.telephone.dirty  || collaborateurForm.controls.telephone.touched)"
+                 class="caption status-danger" >   Champ obligatoire * </p>
+                 <p *ngIf="collaborateurForm.hasError('pattern', 'telephone')  && (collaborateurForm.controls.telephone.dirty  || collaborateurForm.controls.telephone.touched)"
+                 class="caption status-danger">   Veuillez entrer un numéro de télephone valide</p>
+
+                 
+           </div>
+
+           <div class="col-md-4">
+               <label> E-mail  </label>
+               <input type="text" nbInput fullWidth 
+               status="warning"
+               shape="rectangle" 
+               fieldSize="medium"
+               placeholder="E-mail"  
+               formControlName="email">
+
+                <p *ngIf="collaborateurForm.hasError('required', 'email')  && (collaborateurForm.controls.email.dirty  || collaborateurForm.controls.email.touched)"
+                class="caption status-danger" >   Champ obligatoire *</p>
+                <p *ngIf="collaborateurForm.hasError('pattern', 'email')  && (collaborateurForm.controls.email.dirty  || collaborateurForm.controls.email.touched)"
+                class="caption status-danger">   Veuillez entrer un email valide</p>
+            </div>
+
+
+         <div  style="margin-top: 0.5%;" class="col-md-4">
+            <label> Grade  </label> <br>
+             <nb-select placeholder="Choisir votre grade" 
+             status="warning"
+             shape="rectangle" 
+             fieldSize="giant"
+             formControlName="grade" >
+                <nb-option value="Expert-comptable"> Expert-comptable </nb-option>
+                <nb-option value="Comptable junior">Comptable junior</nb-option>
+                <nb-option value="Aide comptable">Aide comptable</nb-option>
+                <p *ngIf="collaborateurForm.hasError('required', 'email')  && (collaborateurForm.controls.email.dirty  || collaborateurForm.controls.email.touched)"
+                class="caption status-danger" >   Champ obligatoire *</p>
+            </nb-select>
+          </div>
+         </div>
+
+         
+         <div class="row">
+            <div class="col-md-12">
+            <label> Choisir Département</label>
+            <nb-select
+            formControlName="departement" 
+            status="warning"
+            fullWidth id="relation" 
+            fieldSize="medium"
+            placeholder="{{ 'Choisir Département'}}">
+            
+            <nb-option 
+            *ngFor="let  item of  departementList" 
+            [value]="item">{{item.name}}
+            </nb-option>
+            </nb-select>
+
+
+               </div>
+               </div>
+
+
+
+      
+
+      <div class="row" [hidden] ="modeView">
+       <div class="col-md-12" style="text-align: center; margin-top: 3%;  ">
+           <button type="submit" id="ajouter"  style="background-color: #17BC2A"  
+             nbButton class="button-menu-activated btn-search"> 
+                         {{typeSubmit}}
+
+           </button>
+           <button class="button-menu-activated btn-search-2"
+                   nbButton
+                   style="background-color: #D1051B;"
+                    id="annuler"
+                   (click)="reset()"
+                   type="button">
+               Annuler
+           </button>
+       </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </form>  
+   </nb-card-body>
+</nb-card>

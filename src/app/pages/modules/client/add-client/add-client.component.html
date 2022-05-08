@@ -1,0 +1,171 @@
+
+ 
+    
+
+
+
+<nb-card class=" card model-full">
+    <nb-card-body>
+            <button (click)="closeDialog(null)"  type="button" id="button" class="close noFocus" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+                     
+        
+        <h1>Fiche Client</h1> 
+        <form [formGroup]="clientForm"  (ngSubmit)="onSubmit()" >
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Nom</label>
+                   <input type="text"
+                     nbInput fullWidth  
+                     status="warning"
+                     shape="rectangle" 
+                     fieldSize="medium" 
+                     placeholder="Nom"  
+                     formControlName="firstName">
+                   <p *ngIf="clientForm.hasError('required', 'firstName') && (clientForm.controls.firstName.dirty || clientForm.controls.firstName.touched)"
+                   class="caption status-danger">   Champ obligatoire *</p>
+
+                   <p *ngIf="clientForm.hasError('pattern', 'firstName') && (clientForm.controls.firstName.dirty || clientForm.controls.firstName.touched)"
+                   class="caption status-danger" translate>   Erreur veuillez vérifier les informations</p>
+                </div>
+
+                <div class="col-md-6">
+                   <label> Prénom</label>
+                  <input type="text" nbInput fullWidth 
+                   status="warning" 
+                   shape="rectangle" 
+                   fieldSize="medium" 
+                   placeholder="Prénom" 
+                   formControlName="lastName">
+                   <p *ngIf="clientForm.hasError('required', 'lastName') && (clientForm.controls.lastName.dirty || clientForm.controls.lastName.touched)"
+                    class="caption status-danger" >   Champ obligatoire *</p>
+                   <p *ngIf="clientForm.hasError('pattern', 'lastName') && (clientForm.controls.lastName.dirty || clientForm.controls.lastName.touched)"
+                    class="caption status-danger" >   Erreur veuillez vérifier les informations</p>
+                
+               </div>
+            </div>
+
+
+               <div style="margin-top: 1%;" class="row"> 
+                <div class="col-md-12">
+                    <label> Adresse complète </label>
+                    <input type="text" nbInput fullWidth 
+                    status="warning" 
+                    shape="rectangle" 
+                    fieldSize="medium" 
+                    placeholder="Adresse complète "
+                    formControlName="address">
+                    <p *ngIf="clientForm.hasError('required', 'address') && (clientForm.controls.address.dirty || clientForm.controls.address.touched)"
+                    class="caption status-danger">   Champ obligatoire *</p>
+
+                </div>
+               </div>
+
+
+
+               
+          <div style="margin-top: 1%;" class="row">
+                <div class="col-md-6">
+                    <label>Ville</label>
+                   <input type="text" nbInput fullWidth   status="warning" shape="rectangle" fieldSize="medium" placeholder="Ville"  formControlName="ville">
+                </div>
+
+
+                <div class="col-md-6">
+                   <label> Code Postal</label>
+                  <input type="text" nbInput fullWidth  
+                    status="warning"
+                    shape="rectangle"
+                    fieldSize="medium"
+                    placeholder="Code Postal"
+                    minlength="4"
+                    maxlength="4"
+                    formControlName="codePostal">
+                  <p *ngIf="clientForm.hasError('required', 'codePostal')
+                   && (clientForm.controls.codePostal.dirty || clientForm.controls.codePostal.touched)"
+                  class="caption status-danger">   Champ obligatoire *</p>
+
+                  <p *ngIf="clientForm.hasError('pattern', 'codePostal')  && (clientForm.controls.codePostal.dirty  || clientForm.controls.codePostal.touched)"
+                  class="caption status-danger">   Veuillez entrer un code postal  valide</p>
+
+               </div>
+            </div>
+
+
+            <div style="margin-top: 1%;" class="row">
+                <div class="col-md-6">
+                    <label>Télephone</label>
+                   <input type="text" nbInput fullWidth 
+                    status="warning" shape="rectangle"
+                    fieldSize="medium" placeholder="Télephone" 
+                    minlength="8"
+                    maxlength="8"
+                    formControlName="telephone">
+                      
+                   <p *ngIf="clientForm.hasError('required', 'telephone')  && (clientForm.controls.telephone.dirty  || clientForm.controls.telephone.touched)"
+                   class="caption status-danger" >   Champ obligatoire * </p>
+                   <p *ngIf="clientForm.hasError('pattern', 'telephone')  && (clientForm.controls.telephone.dirty  || clientForm.controls.telephone.touched)"
+                   class="caption status-danger">   Veuillez entrer un numéro de télephone valide</p>
+
+                          
+                          
+                </div>
+
+
+
+
+                <div class="col-md-6">
+                   <label> E-mail</label>
+                  <input type="text" nbInput fullWidth 
+                   status="warning"
+                   shape="rectangle" 
+                   fieldSize="medium" placeholder="E-mail"  
+                   formControlName="email">
+                   <p *ngIf="clientForm.hasError('required', 'email')  && (clientForm.controls.email.dirty  || clientForm.controls.email.touched)"
+                   class="caption status-danger" >   Champ obligatoire *</p>
+                   <p *ngIf="clientForm.hasError('pattern', 'email')  && (clientForm.controls.email.dirty  || clientForm.controls.email.touched)"
+                   class="caption status-danger">   Veuillez entrer un email valide</p>
+       
+
+
+
+               </div>
+            </div>
+
+            
+
+            <div class="row" [hidden] ="modeView">
+                <div class="col-md-12" style="text-align: center; margin-top: 3%;  ">
+                    <button type="submit" 
+                    id="ajouter"
+                    style="background-color: #17BC2A"    
+                    nbButton class="button-menu-activated btn-search"> 
+                         {{typeSubmit}}
+                    </button>
+                    <button class="button-menu-activated btn-search-2"
+                            nbButton
+                            style="background-color: #D1051B;"
+                            id="annuler"
+                            (click)="reset()"
+                            type="button">
+                        Annuler
+                    </button>
+                </div>
+            </div>
+        
+
+
+
+
+
+
+
+
+
+
+        </form>
+    </nb-card-body>
+</nb-card>

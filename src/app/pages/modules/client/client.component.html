@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header class="header">
+     Liste de Client
+     <button nbButton status="warning" (click)="addNewClient()" > Nouveau Client +</button>
+    </nb-card-header>
+  
+    <nb-card-body class="body">
+      <ng2-smart-table class="table"
+       [settings]="settings"
+       [source]="client" 
+     >
+      </ng2-smart-table>    
+    </nb-card-body>
+  </nb-card>

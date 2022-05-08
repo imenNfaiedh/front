@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header class="header">
+      Liste des Departements
+      <button nbButton status="warning" (click)="addNewDepartement()" > Nouveau departement +</button>
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table
+       [settings]="settings"
+       [source]="departement" 
+     >
+      </ng2-smart-table>    
+    </nb-card-body>
+  </nb-card>

@@ -5,6 +5,16 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { AddDepartementComponent } from './modules/departement/add-departement/add-departement.component';
+import { AddMissionComponent } from './modules/mission/add-mission/add-mission.component';
+import { AddCollaborateurComponent } from './modules/collaborateur/add-collaborateur/add-collaborateur.component';
+import { AddClientComponent } from './modules/client/add-client/add-client.component';
+import { AddManagerComponent } from './modules/manager/add-manager/add-manager.component';
+import { MissionComponent } from './modules/mission/mission.component';
+import { ManagerComponent } from './modules/manager/manager.component';
+import { DepartementComponent } from './modules/departement/departement.component';
+import { ClientComponent } from './modules/client/client.component';
+import { CollaborateurComponent } from './modules/collaborateur/collaborateur.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,8 +22,49 @@ const routes: Routes = [{
   children: [
     {
       path: 'dashboard',
-      component: ECommerceComponent,
+      component: CollaborateurComponent,
     },
+    {
+      path: 'list-of-collaborateur',
+      component:  CollaborateurComponent,
+    },
+    {
+      path: 'list-of-client',
+      component:   ClientComponent,
+    },
+    {
+      path: 'list-of-departement',
+      component:   DepartementComponent,
+    },
+    {
+      path: 'list-of-manager',
+      component:   ManagerComponent,
+    },
+    {
+      path: 'list-of-mission',
+      component:   MissionComponent,
+    },
+    {
+      path: 'add-manager',
+      component:    AddManagerComponent,
+    },
+    {
+      path: 'add-client',
+      component:    AddClientComponent,
+    },
+    {
+      path: 'add-collaborateur',
+      component:    AddCollaborateurComponent,
+    },
+    {
+    path: 'add-mission',
+    component:    AddMissionComponent,
+    },
+    {
+      path: 'add-departement',
+      component:    AddDepartementComponent,
+    },
+    
     {
       path: 'iot-dashboard',
       component: DashboardComponent,

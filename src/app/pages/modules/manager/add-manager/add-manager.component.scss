@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: black;
+}
+
+ #ajouter{
+    color :azure;
+    
+}
+
+#annuler{
+    color :azure;
+}
+  
+  nb-checkbox:not(:only-child) {
+    margin-right: 1.5rem;
+  }
+
+//POPUP
+  .model-full {
+    width: 80% !important;
+    height: 99% !important;
+    border-radius: 60px;
+    border-color: #ffaa00;
+    color:black;
+    
+    
+  }
+
+//boutton Close
+#button {
+  opacity: 5;
+  background-color:#d1051b;
+  color: #fff;
+  padding: 0;
+  font-size: 2em;
+  font-weight: 500;
+}
+  

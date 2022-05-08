@@ -1,0 +1,15 @@
+<nb-card>
+    <nb-card-header class="header">
+     Liste de Collaborateurs
+     <button nbButton status="warning" (click)="addNewCollaborateur()" > Nouveau Collaborateur +</button>
+
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table
+       [settings]="settings"
+       [source]="collaborateur" 
+     >
+      </ng2-smart-table>    
+    </nb-card-body>
+  </nb-card>

@@ -1,0 +1,120 @@
+<nb-card class=" card model-full">
+    <nb-card-body>
+        <form [formGroup]="departementForm"  (ngSubmit)="onSubmit()" >
+
+        <button (click)="closeDialog(null)"  type="button" id="button" class="close noFocus" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+            
+        <h1>Departement</h1> 
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Nom</label>
+                   <input type="text"
+                     nbInput fullWidth  
+                     status="warning"
+                     shape="rectangle" 
+                     fieldSize="medium" 
+                     placeholder="Nom"  
+                     formControlName="name">
+
+                     <p *ngIf="departementForm.hasError('required', 'name')  && (departementForm.controls.name.dirty  || departementForm.controls.name.touched)"
+                   class="caption status-danger" >   Champ obligatoire *</p>
+
+                    </div>
+                
+
+                
+                    <div  style="margin-top: 0.5%;" class="col-md-4">
+                        <label> spécialité  </label> <br>
+                         <nb-select placeholder="Choisir la spécialité" 
+                           status="warning"
+                           shape="rectangle" 
+                           fieldSize="medium"
+                           formControlName="specialite" >
+                            <nb-option value="Audit"> Audit </nb-option>
+                            <nb-option value="Facturation"> Facturation </nb-option>
+                            <nb-option value="Fiscalité">Fiscalité</nb-option>
+                            <p *ngIf="departementForm.hasError('required', 'specialite')  && (departementForm.controls.specialite.dirty  || departementForm.controls.specialite.touched)"
+                            class="caption status-danger" >   Champ obligatoire *</p>
+                        </nb-select>
+                      </div>
+                     </div>
+
+
+                     <div class="row">
+               
+                        <div class="col-md-12">
+                        <label> Choisir Manager</label>
+                        <nb-select
+                        formControlName="manager" 
+                        status="warning"
+                        fullWidth id="relation" 
+                        fieldSize="medium"
+                        placeholder="{{ 'Choisir Manager'}}">
+                        
+                        <nb-option 
+                        *ngFor="let  item of  managerList" 
+                        [value]="item">{{item.fullName}}
+                        </nb-option>
+                        </nb-select>
+           
+           
+                           </div>
+                           </div>
+            
+
+
+
+                <div class="row" [hidden] ="modeView">
+                    <div class="col-md-12" style="text-align: center; margin-top: 3%;  ">
+                        <button type="submit" 
+                        id="ajouter"
+                        style="background-color: #17BC2A"    
+                        nbButton class="button-menu-activated btn-search"> 
+                             {{typeSubmit}}
+                        </button>
+                        <button class="button-menu-activated btn-search-2"
+                                nbButton
+                                style="background-color: #D1051B;"
+                                id="annuler"
+                                (click)="reset()"
+                                type="button">
+                            Annuler
+                        </button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </form>
+    </nb-card-body>
+</nb-card>

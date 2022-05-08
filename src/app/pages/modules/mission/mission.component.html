@@ -1,0 +1,15 @@
+<nb-card>
+    <nb-card-header class="header">
+     Liste de Mission
+     <button nbButton status="warning" (click)="addNewMission()" > nouvelle Mission +</button>
+
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table
+       [settings]="settings"
+       [source]="mission" 
+     >
+      </ng2-smart-table>    
+    </nb-card-body>
+  </nb-card>
