@@ -15,7 +15,11 @@ import { ManagerComponent } from './modules/manager/manager.component';
 import { DepartementComponent } from './modules/departement/departement.component';
 import { ClientComponent } from './modules/client/client.component';
 import { CollaborateurComponent } from './modules/collaborateur/collaborateur.component';
+import { UserComponent } from './modules/user/user.component';
+import { AddUser2Component } from './modules/user/add-user2/add-user2.component';
 
+import { Login2Component } from '../login2/login2.component';
+import { RouteGuardService } from '../route-gurad.service';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -23,51 +27,75 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: CollaborateurComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'list-of-collaborateur',
       component:  CollaborateurComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'list-of-client',
       component:   ClientComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'list-of-departement',
       component:   DepartementComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'list-of-manager',
       component:   ManagerComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'list-of-mission',
       component:   MissionComponent,
+      canActivate: [RouteGuardService]
+    },
+    {
+      path: 'list-of-user',
+      component:   UserComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'add-manager',
       component:    AddManagerComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'add-client',
       component:    AddClientComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'add-collaborateur',
       component:    AddCollaborateurComponent,
+      canActivate: [RouteGuardService]
     },
     {
     path: 'add-mission',
     component:    AddMissionComponent,
+    canActivate: [RouteGuardService]
     },
     {
       path: 'add-departement',
       component:    AddDepartementComponent,
+      canActivate: [RouteGuardService]
     },
+    {
+      path: 'add-user',
+      component:    AddUser2Component,
+      canActivate: [RouteGuardService]
+    },
+    
+    
     
     {
       path: 'iot-dashboard',
       component: DashboardComponent,
+      canActivate: [RouteGuardService]
     },
     {
       path: 'layout',

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { NbButtonModule, NbCardModule, NbCheckboxModule, NbDialogModule, NbIconModule, NbInputModule, NbMenuModule, NbSelectModule, NbToastrModule, NbTooltipModule, NbWindowModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbCheckboxModule, NbDialogModule, NbIconModule,
+   NbInputModule, NbMenuModule, NbSelectModule, NbToastrModule, NbTooltipModule, NbWindowModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -23,7 +24,16 @@ import { ActionMissionComponent } from './modules/mission/action-mission/action-
 import { AddDepartementComponent } from './modules/departement/add-departement/add-departement.component';
 import { ActionDepartementComponent } from './modules/departement/action-departement/action-departement.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { UserComponent } from './modules/user/user.component';
+//import { AddUserComponent } from './modules/user/add-user/add-user.component';
+import { ActionUserComponent } from './modules/user/action-user/action-user.component';
+import { AddUser2Component } from './modules/user/add-user2/add-user2.component';
+//import { BasicAuthenticationService } from './service/login/basic-authentification.service';
+//import { HardcodedAuthentificationService } from './service/login/hardcoded-authentification.service';
+//import { HttpInterceptorBasicAuthService } from './service/login/http-interceptor-basic-auth.service';
+//import { RouteGuardService } from './service/login/route-guard.service';
 
 @NgModule({
   imports: [
@@ -47,6 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NbToastrModule.forRoot( ),
     NbSelectModule,
     NbTooltipModule,
+    FormsModule,
     NbSelectModule,
   ],
   declarations: [
@@ -62,10 +73,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddMissionComponent,
     ActionClientComponent,
     ActionCollaborateurComponent,
-    ActionManagerComponent,
+    ActionManagerComponent, 
     ActionMissionComponent,
     AddDepartementComponent,
     ActionDepartementComponent,
+    UserComponent,
+    //AddUserComponent,
+    ActionUserComponent,
+    AddUser2Component,
+  ],
+  providers :[
+    //BasicAuthenticationService,
+    //HardcodedAuthentificationService,
+    //HttpInterceptorBasicAuthService,
+    //RouteGuardService
   ],
 })
 export class PagesModule {

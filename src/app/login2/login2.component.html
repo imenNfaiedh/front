@@ -1,0 +1,57 @@
+<nb-card class=" card model-full">
+    <nb-card-body> 
+        <form [formGroup]="loginForm">
+      <h1>Login!</h1>
+
+  <div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" id="icon" alt="User Icon" />
+      </div>
+  
+
+  <div  style="margin-top: 1%;" class="row">
+    <div class="col-md-6">
+      <input type="text"
+      name="username"
+      formControlName="username"
+      nbInput fullWidth status="primary"
+      placeholder="Admin"
+      id="u">
+</div>
+</div>
+
+<div  style="margin-top: 1%;" class="row">
+    <div class="col-md-6">
+      <input type="text"
+      name="password"
+      formControlName="password"
+      nbInput fullWidth status="primary"
+      placeholder="Mot de passe"
+      id="mdp">
+</div>
+</div>
+    
+    
+
+
+
+    <!-- <button (click)="handleClick()" class="btn btn-success">Login</button> -->
+    <!-- <button (click)="handleBasicAuthLogin()" class="btn btn-success">Login</button> -->
+
+    <div  style="margin-top: 1%;" class="row">
+        <div class="col-md-6">
+    <button (click)=handleJWTAuthLogin() 
+    class="btn btn-success"
+    nbButton hero status="success" id="btn">Login</button>
+   </div>
+   </div>
+
+    
+  
+
+
+
+</form>
+</nb-card-body>
+</nb-card>

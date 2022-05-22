@@ -34,8 +34,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: 'list-of-mission',
   },
   {
-    title: 'Departement',
+    title: 'Département',
     icon: 'home-outline',
     link: '/pages/list-of-departement',
+  },
+  {
+    title: 'Utilisateur',
+    icon: 'home-outline',
+    link: '/pages/list-of-user',
   },
 ];

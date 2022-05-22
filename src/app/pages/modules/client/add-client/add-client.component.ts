@@ -13,12 +13,14 @@ import { ToastrService } from '../../../service/toastr.service';
   styleUrls: ['./add-client.component.scss']
 })
 export class AddClientComponent implements OnInit {
+
 clientForm: FormGroup;
 client: Client;
 typeSubmit ='Ajouter';
 mode ="Ajouter"
    @Input() id;
    @Input() modeView: boolean
+   
   constructor(
     private formBuilder: FormBuilder ,
     private clientService: ClientService,
@@ -125,7 +127,7 @@ if (this.mode === 'Ajouter'){
 }else
 {
 
-  this.markAsDirty()
+ // this.markAsDirty()
 
   console.log( this.clientForm.value)
   console.log( this.clientForm.invalid)

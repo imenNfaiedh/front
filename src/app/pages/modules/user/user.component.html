@@ -1,0 +1,15 @@
+<nb-card>
+    <nb-card-header class="header">
+        Liste d'utilisateur
+        <button nbButton status="warning" (click)="addNewUser()" > Nouveau Utilisateur +</button>
+      </nb-card-header>
+
+
+      <nb-card-body class="body">
+        <ng2-smart-table class="table"
+        [settings]="settings"
+        [source]="user" 
+      >
+    </ng2-smart-table>    
+</nb-card-body>
+</nb-card>

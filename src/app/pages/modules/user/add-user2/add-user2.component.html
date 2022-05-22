@@ -1,0 +1,62 @@
+
+<nb-card class=" card model-full">
+    <nb-card-body>
+        <button (click)="closeDialog(null)"  type="button" id="button" class="close noFocus" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+<h1>Utilisateur</h1>
+<form [formGroup]="userForm"  (ngSubmit)="onSubmit()" >
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>Nom</label>
+
+            <input type="text"
+            nbInput
+            status="primary" 
+            fieldSize="medium" 
+            placeholder="Nom"  
+            formControlName="firstName">
+
+            <p *ngIf="userForm.hasError('required', 'firstName') && (userForm.controls.firstName.dirty || userForm.controls.firstName.touched)"
+                   class="caption status-danger">   Champ obligatoire *</p>
+
+            <p *ngIf="userForm.hasError('pattern', 'firstName') && (userForm.controls.firstName.dirty || userForm.controls.firstName.touched)"
+                   class="caption status-danger" translate>   Erreur veuillez vérifier les informations</p>
+                
+
+       </div> 
+        </div>
+
+
+
+
+
+
+
+        
+
+        <div class="row" [hidden] ="modeView">
+            <div class="col-md-12" style="text-align: center; margin-top: 3%;  ">
+                <button type="submit" 
+                id="ajouter"
+                style="background-color: #17BC2A"    
+                nbButton class="button-menu-activated btn-search"> 
+                     {{typeSubmit}}
+                </button>
+                <button class="button-menu-activated btn-search-2"
+                        nbButton
+                        style="background-color: #D1051B;"
+                        id="annuler"
+                        (click)="reset()"
+                        type="button">
+                    Annuler
+                </button>
+            </div>
+        </div>
+
+
+</form>
+    </nb-card-body>
+</nb-card>

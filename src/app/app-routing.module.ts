@@ -8,6 +8,9 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { Login2Component } from './login2/login2.component';
+import { HelloComponent } from './hello/hello.component';
+import { RouteGuardService } from './route-gurad.service';
 
 export const routes: Routes = [
   {
@@ -15,17 +18,18 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
+  
   {
     path: 'auth',
     component: NbAuthComponent,
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component:  Login2Component,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: Login2Component,
       },
       {
         path: 'register',
@@ -45,8 +49,17 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  {
+    path : 'login',
+    component :  Login2Component  
+
+  },
+  {
+    path :"hello",
+    component :HelloComponent
+  },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth' },
 ];
 
 const config: ExtraOptions = {
